@@ -247,7 +247,7 @@ animation:cfall var(–d) ease-in var(–dl) forwards;
 
 <button class="spin-btn" id="spinBtn" onclick="spin()">🎯 SPIN NOW!</button>
 
-  <div class="spin-count">You have <span id="spinsLeft">3</span> free spins today</div>
+  <div class="spin-count">You have <span id="spinsLeft">1</span> free spin today</div>
   <div class="history" id="history"></div>
   <div class="footer">Share with friends 🔗</div>
 </div>
@@ -270,20 +270,20 @@ animation:cfall var(–d) ease-in var(–dl) forwards;
 <script>
 const segments = [
   { label:"$10K+MacBook💻",  color:"#005f8a", emoji:"💻", code:"WIN-10K-MBP-4471", msg:"🎉 You won $10,000 CASH + MacBook Pro + USA Political Party Cap! DM the code below to claim!" },
-  { label:"Better Luck😔",   color:"#2D0057", emoji:"😔", code:null,               msg:"Aww, not this time! Spin again and go bigger 💪" },
+  { label:"$500 Cash💵",     color:"#6b2f00", emoji:"💵", code:"WIN-500-CSH-1192",  msg:"💵 You won $500 CASH! DM the code below to claim your prize! 🎉" },
   { label:"$15K+MacBook👑",  color:"#7a5800", emoji:"👑", code:"WIN-15K-MBP-8823", msg:"🏆 MEGA WIN! $15,000 CASH + MacBook Pro + USA Political Party Cap! DM code NOW! 🚀" },
-  { label:"iPhone 16 Pro📱", color:"#1a1a2e", emoji:"📱", code:"WIN-IP16-PRO-3356", msg:"📱 You won a Brand New iPhone 16 Pro Max! DM the code below to claim! 🎊" },
-  { label:"Free Spin🎡",     color:"#004d00", emoji:"🎡", code:"WIN-FREE-SPN-7755", msg:"🎡 You won a FREE BONUS SPIN! DM the code below to get it! 🎉" },
+  { label:"$1,000 Cash🤑",   color:"#003d00", emoji:"🤑", code:"WIN-1K-CSH-4423",   msg:"🤑 You won $1,000 CASH! DM the code below to claim! 💸" },
   { label:"$5K+MacBook🎯",   color:"#5a1f99", emoji:"🎯", code:"WIN-5K-MBP-6612",  msg:"🎯 $5,000 CASH + MacBook Pro + USA Political Party Cap! DM code to claim! 💸" },
-  { label:"Better Luck😔",   color:"#111133", emoji:"😔", code:null,               msg:"So close! Give it another spin — big prizes are waiting! 🤞" },
+  { label:"$250 Cash💰",     color:"#004455", emoji:"💰", code:"WIN-250-CSH-8871",  msg:"💰 You won $250 CASH! DM the code below to receive your prize! 🎊" },
   { label:"$20,000 CASH💰",  color:"#6b0000", emoji:"💰", code:"WIN-20K-CSH-9901", msg:"💰 JACKPOT! $20,000 CASH is YOURS! DM the code below IMMEDIATELY! 🔥🔥🔥" },
-  { label:"PS5+Games🎮",     color:"#002255", emoji:"🎮", code:"WIN-PS5-GAM-7743",  msg:"🎮 You won a PlayStation 5 + 5 Games Bundle! DM code below to claim! 🕹️" },
-  { label:"Free Spin🎡",     color:"#2d5a00", emoji:"🎡", code:"WIN-FREE-SPN-3391", msg:"🎡 Lucky you — FREE BONUS SPIN! DM the code below! 🎉" },
+  { label:"iPhone 16 Pro📱", color:"#1a1a2e", emoji:"📱", code:"WIN-IP16-PRO-3356", msg:"📱 You won a Brand New iPhone 16 Pro Max + $200 CASH! DM the code below to claim! 🎊" },
+  { label:"$2,500 Cash🏅",   color:"#550055", emoji:"🏅", code:"WIN-2500-CSH-6634", msg:"🏅 You won $2,500 CASH! DM the code below to claim your prize! 💸" },
   { label:"$5K+MacBook🎯",   color:"#991a66", emoji:"🎯", code:"WIN-5K-MBP-2287",  msg:"🎯 $5,000 CASH + MacBook Pro + USA Political Party Cap! DM code now! 💸" },
-  { label:"Luxury Watch⌚",  color:"#3d0000", emoji:"⌚", code:"WIN-LUX-WCH-1129", msg:"⌚ You won a Luxury Watch worth $3,000! DM the code below to arrange delivery! 🎊" },
+  { label:"$750 Cash💳",     color:"#2d3a00", emoji:"💳", code:"WIN-750-CSH-3345",  msg:"💳 You won $750 CASH! DM the code below to receive your prize! 🎉" },
+  { label:"$10K+MacBook💻",  color:"#004d2b", emoji:"💻", code:"WIN-10K-MBP-5538", msg:"🎉 $10,000 CASH + MacBook Pro + USA Political Party Cap is YOURS! DM code NOW! 🔥" },
 ];
 
-const MAX=3, KEY='sw3';
+const MAX=1, KEY='sw4';
 let deg=0, going=false, left=MAX, hist=[];
 
 function load(){
