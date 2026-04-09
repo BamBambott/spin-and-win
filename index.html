@@ -342,7 +342,31 @@ function spin(){
   document.getElementById('spinBtn').disabled=true;
 
   const extra=5+Math.floor(Math.random()*5);
-  const tgt=Math.random()*2*Math.PI;
+
+  // First spin = guaranteed win: pick a random winning segment
+  let tgt;
+  const firstSpin = (MAX - left) === 0; // left was just decremented so left=0 means first spin
+  const winIndexes = segments.map((s,i)=>s.code?i:-1).filter(i=>i>=0);
+
+  // Calculate angle that lands pointer on a chosen segment
+  function angleForIndex(idx){
+    // pointer at top = 0; segment starts at -PI/2 + idx*ARC
+    // we want the middle of segment idx to be at top
+    const midAngle = idx * ARC + ARC/2;
+    // normalized so the segment mid lands at pointer (top)
+    return (2*Math.PI - midAngle) % (2*Math.PI);
+  }
+
+  if(left === 0){ // this was the only/first spin (MAX=1)
+    const chosen = winIndexes[Math.floor(Math.random()*winIndexes.length)];
+    const base = angleForIndex(chosen);
+    // add small random offset within the segment (stay within 80% of segment)
+    const jitter = (Math.random()-0.5) * ARC * 0.7;
+    tgt = (base + jitter + 2*Math.PI) % (2*Math.PI);
+  } else {
+    tgt = Math.random()*2*Math.PI;
+  }
+
   const total=extra*2*Math.PI+tgt;
   const dur=4200+Math.random()*1200;
   const t0=performance.now(), a0=deg;
