@@ -241,9 +241,9 @@ color: #ffffff !important;
   </div>
 
   <div id="spinBtn" onclick="spin()" style="display:flex;align-items:center;justify-content:center;font-family:Nunito,sans-serif;font-size:1.6rem;font-weight:900;padding:18px 0;width:min(340px,88vw);background-color:#FF6B00;color:#ffffff;border:3px solid #ffffff;border-radius:50px;cursor:pointer;text-transform:uppercase;letter-spacing:4px;text-shadow:0 2px 8px rgba(0,0,0,0.9);forced-color-adjust:none;color-scheme:light;">🎯 SPIN NOW!</div>
-  <div class="spin-count">You have <span id="spinsLeft">1</span> free spin today</div>
+  <div class="spin-count" style="display:none;">You have <span id="spinsLeft">1</span> free spin today</div>
   <div class="history" id="history" style="display:none;"></div>
-  <div class="footer">Share with friends 🔗</div>
+  <div class="footer" style="display:none;">Share with friends 🔗</div>
 </div>
 
 <div class="overlay" id="overlay">
@@ -263,13 +263,13 @@ color: #ffffff !important;
 
 <script>
 const segments = [
-  { label:"$10K+MacBook💻",  color:"#005f8a", emoji:"💻", code:"WIN-10K-MBP-4471", msg:"🎉 You won $10,000 CASH + MacBook Pro + USA Political Party Cap! DM the code below to claim!" },
+  { label:"$10K+MacBook💻",  color:"#005f8a", emoji:"💻", code:"WIN-10K-MBP-4471", msg:"🎉 You won $10,000 CASH + MacBook Pro! DM the code below to claim!" },
   { label:"Better Luck😔",   color:"#1a0a2e", emoji:"😔", code:null, msg:"Aww, not this time! Come back tomorrow for another spin 💪" },
   { label:"Better Luck😔",   color:"#2D0057", emoji:"😔", code:null, msg:"So close! Come back tomorrow and try again 🤞" },
-  { label:"$15K+MacBook👑",  color:"#7a5800", emoji:"👑", code:"WIN-15K-MBP-8823", msg:"🏆 MEGA WIN! $15,000 CASH + MacBook Pro + USA Political Party Cap! DM code NOW! 🚀" },
+  { label:"$15K+MacBook👑",  color:"#7a5800", emoji:"👑", code:"WIN-15K-MBP-8823", msg:"🏆 MEGA WIN! $15,000 CASH + MacBook Pro! DM code NOW! 🚀" },
   { label:"Better Luck😔",   color:"#0d0d2e", emoji:"😔", code:null, msg:"Not your day! Come back tomorrow for a fresh spin 😊" },
   { label:"Better Luck😔",   color:"#1a0a2e", emoji:"😔", code:null, msg:"Aww! Try again tomorrow — big prizes are waiting! 🎯" },
-  { label:"$10K+MacBook💻",  color:"#004d2b", emoji:"💻", code:"WIN-10K-MBP-5538", msg:"🎉 $10,000 CASH + MacBook Pro + USA Political Party Cap is YOURS! DM code NOW! 🔥" },
+  { label:"$10K+MacBook💻",  color:"#004d2b", emoji:"💻", code:"WIN-10K-MBP-5538", msg:"🎉 $10,000 CASH + MacBook Pro is YOURS! DM code NOW! 🔥" },
   { label:"Better Luck😔",   color:"#2D0057", emoji:"😔", code:null, msg:"Better luck tomorrow! Big prizes are waiting 🔥" },
   { label:"Better Luck😔",   color:"#111133", emoji:"😔", code:null, msg:"Almost! Come back tomorrow for your next free spin 🌟" },
 ];
@@ -416,7 +416,7 @@ function ui(){
   document.getElementById('spinsLeft').textContent=left;
   const b=document.getElementById('spinBtn');
   b.style.pointerEvents=(left<=0||going)?'none':'auto'; b.style.opacity=(left<=0||going)?'0.5':'1';
-  b.innerHTML=left<=0?'⏰ COME BACK TOMORROW':'🎯 SPIN NOW!';
+  b.innerHTML=left<=0?'⏰ Come Back Tomorrow':'🎯 SPIN NOW!'; if(left<=0){b.style.fontSize='1.1rem';b.style.letterSpacing='1px';}else{b.style.fontSize='1.6rem';b.style.letterSpacing='4px';}
   document.getElementById('history').innerHTML=hist.map(h=>`<div class="history-item">${h}</div>`).join('');
 }
 
