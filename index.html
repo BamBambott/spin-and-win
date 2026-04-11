@@ -103,14 +103,17 @@ font-size:1.2rem;
 
 .spin-btn {
 font-family:‘Fredoka One’,cursive;
-font-size:clamp(1.2rem,5vw,1.5rem);
-padding:15px 52px;
+font-size:clamp(1.4rem,6vw,1.8rem);
+padding:18px 60px;
 background:linear-gradient(135deg,#FFD700,#FF6B35);
-color:#0D0D1A; border:none; border-radius:50px;
+color:#000;
+border:3px solid rgba(255,255,255,0.4);
+border-radius:50px;
 cursor:pointer;
-box-shadow:0 8px 28px rgba(255,107,53,0.55);
+box-shadow:0 8px 28px rgba(255,107,53,0.7), 0 0 0 4px rgba(255,215,0,0.4), 0 0 30px rgba(255,215,0,0.3);
 transition:all .2s;
-text-transform:uppercase; letter-spacing:2px;
+text-transform:uppercase; letter-spacing:3px;
+text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 .spin-btn:hover:not(:disabled) {
 transform:translateY(-3px);
