@@ -253,8 +253,7 @@ animation:cfall var(–d) ease-in var(–dl) forwards;
 
   </div>
 
-<button class="spin-btn" id="spinBtn" onclick="spin()" style="background:#FF6B00;background-image:linear-gradient(135deg,#FF8C00,#FF4500);color:#fff;border:3px solid #fff;">🎯 SPIN NOW!</button>
-
+  <div id="spinBtn" onclick="spin()" style="display:flex;align-items:center;justify-content:center;font-family:Nunito,sans-serif;font-size:1.6rem;font-weight:900;padding:18px 0;width:min(340px,88vw);background:linear-gradient(135deg,#FF8C00,#FF4500);color:#fff;border:3px solid #fff;border-radius:50px;cursor:pointer;box-shadow:0 8px 32px rgba(255,107,0,0.9);text-transform:uppercase;letter-spacing:4px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">🎯 SPIN NOW!</div>
   <div class="spin-count">You have <span id="spinsLeft">1</span> free spin today</div>
   <div class="history" id="history" style="display:none;"></div>
   <div class="footer">Share with friends 🔗</div>
@@ -347,7 +346,7 @@ function draw(r){
 function spin(){
   if(going||left<=0)return;
   going=true; left--;
-  document.getElementById('spinBtn').disabled=true;
+  document.getElementById('spinBtn').style.pointerEvents='none'; document.getElementById('spinBtn').style.opacity='0.5';
 
   const extra=5+Math.floor(Math.random()*5);
 
@@ -429,8 +428,8 @@ function fb(t){const a=document.createElement('textarea');a.value=t;document.bod
 function ui(){
   document.getElementById('spinsLeft').textContent=left;
   const b=document.getElementById('spinBtn');
-  b.disabled=left<=0||going;
-  b.textContent=left<=0?'⏰ Come Back Tomorrow!':'🎯 SPIN NOW!';
+  b.style.pointerEvents=(left<=0||going)?'none':'auto'; b.style.opacity=(left<=0||going)?'0.5':'1';
+  b.innerHTML=left<=0?'⏰ COME BACK TOMORROW':'🎯 SPIN NOW!';
   document.getElementById('history').innerHTML=hist.map(h=>`<div class="history-item">${h}</div>`).join('');
 }
 
